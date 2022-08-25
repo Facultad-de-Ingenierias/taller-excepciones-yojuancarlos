@@ -42,6 +42,34 @@ public class punto2 {
 //retornar 0, porque con el if y else se puede hacer una verificacion corta y efectiva, aunque al usar una exception genera
 //una verificacion de muchos posibles errores, en este metodo sensillo no es tan necesario
 
+
+
+3. Usted debe escribir un método que consulta las materias que tiene inscritas un estudiante, a partir 
+del código del estudiante. Si el estudiante no tiene materias inscritas, ¿debería lanzar una 
+excepción o retornar una lista vacía? En caso de lanzar una excepción, ¿sería comprobada o no 
+comprobada? Explique brevemente sus respuestas.
+
+import java.util.ArrayList;
+
+public class punto3 {
+	ArrayList<String> materias = new ArrayList<String>();
+	String materia;
+	public void calculariva(int estudiante) {
+		try {
+			for(int i=0;i<=materias.size();i+=1) {
+				materia= materias.get(i);
+				System.out.println("materia:"+materia);
+			}
+	      } catch (ArrayStoreException ex) {
+	          System.out.println("no tiene materias");
+	      }
+	}
+}
+/*
+Si es recomendable lanzar una excepcion la cual si seria comprobada, porque hay listas de materias 
+que puede que esten vacias, y con la exception se haria una verificacion
+*/
+
 4. Se desea un programa que pida al usuario una URL y verifique si el contenido (Content Type) es 
 de tipo texto (text/plain). Si es de tipo texto se debe mostrar este contenido. En caso contrario se 
 muestra al usuario de qué tipo es el contendido. Además, en caso de que la URL tenga algún 
