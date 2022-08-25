@@ -1,0 +1,22 @@
+1. Identifique el error en el siguiente código y explique cómo se puede corregir.
+public class Instanciacion {
+public Object crearObjeto() {
+ Class<?> clase = this.getClass();
+ return clase.newInstance();
+}
+ public static void main(java.lang.String[] args) {
+ Instanciacion creador = new Instanciacion();
+ try {
+Object creado = creador.crearObjeto();
+ System.out.println(creado);
+ }
+ catch (InstantiationException | IllegalAccessException errorCrea){
+System.out.println("No se pudo crear el objeto");
+ }
+ }
+}
+Solucion 
+En el catch debemos ponerle nombre a InstantiationException para que pueda 
+ejecurtar el metodo, sino sale un error de compilacion, la solucion seria poner
+en vez de InstantiationException, poner InstantiationException I, para assignarle 
+nombre al error  
