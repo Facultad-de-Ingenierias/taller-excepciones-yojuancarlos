@@ -19,4 +19,86 @@ Solucion
 En el catch debemos ponerle nombre a InstantiationException para que pueda 
 ejecurtar el metodo, sino sale un error de compilacion, la solucion seria poner
 en vez de InstantiationException, poner InstantiationException I, para assignarle 
-nombre al error  
+nombre al error 
+
+
+2. Usted debe escribir un método que calcula el valor que debe pagar una persona por boletas de 
+cine, lo cual depende de la cantidad de boletas que lleva. Si dentro del método encuentra que la 
+cantidad de boletas no está dentro de los rangos establecidos, ¿debería lanzar una excepción o 
+retornar cero? En caso de lanzar una excepción, ¿sería comprobada o no comprobada? Explique 
+brevemente sus respuestas.
+
+public class punto2 {
+	public double calcularTotal(double precioproducto, int cantidad) {
+		if (cantidad <= 0 || precioproducto <= 0) {
+			return 0;
+		}		
+		else {
+			return precioproducto*cantidad;
+		}
+		
+	}
+}
+//retornar 0, porque con el if y else se puede hacer una verificacion corta y efectiva, aunque al usar una exception genera
+//una verificacion de muchos posibles errores, en este metodo sensillo no es tan necesario
+
+4. Se desea un programa que pida al usuario una URL y verifique si el contenido (Content Type) es 
+de tipo texto (text/plain). Si es de tipo texto se debe mostrar este contenido. En caso contrario se 
+muestra al usuario de qué tipo es el contendido. Además, en caso de que la URL tenga algún 
+error o que no se pueda obtener el contenido se debe mostrar un mensaje explicando cuál es el 
+error. Se deben usar las clases java.net.URL y java.net.URLConnection. 
+
+import java.net.URL;
+import java.net.URLConnection;
+public class punto4 {
+	public static class ReadingTextusingBufferedReader
+	{
+	  
+	  try {
+		  public static void main(String[] args)throws Exception
+		  {
+		  File doc = new File("C:\\Drive\\Learn.txt");
+
+		  BufferedReader obj = new BufferedReader(new FileReader(doc));
+
+		  String strng;
+		  while ((strng = obj.readLine()) != null)
+		    System.out.println(strng);
+		  }
+          
+          
+      } catch (Exception ex) {
+          System.out.println("no se puede leer el texto porque no tiene contenido");
+      }
+	}
+}
+
+5. Escriba el código en Java de un método llamado “calcularIva”, que recibe el precio de un producto 
+(double) y el tipo de producto (String). Este método calcula el valor del IVA de la siguiente forma: 
+es el 19 % para la mayoría de los productos, excepto para los de tipo básico, donde es el 10 % y 
+los de tipo cultural, donde es 0 %. 
+Realice algunas pruebas para verificar el funcionamiento del método, y tenga en cuenta las 
+posibles validaciones que se deben realizar (considere si es pertinente o no usar una excepción)
+
+public class punto5 {
+
+public double calculariva(double precioproducto, String tipoproduct) {
+	if (tipoproduct == null || precioproducto == 0) {
+		return 0;
+	}
+	else if (tipoproduct =="basicos")
+	{
+		return (precioproducto*0.1+precioproducto);
+	}
+	else if (tipoproduct=="cultura")
+	{
+		return precioproducto;
+	}
+	
+	else {
+		return (precioproducto*0.19+precioproducto);
+	}
+	
+}
+
+}
